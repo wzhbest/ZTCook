@@ -1,4 +1,4 @@
-package com.fedming.bottomnavigationdemo;
+package com.zTeam.cook;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by bruce on 2016/11/1.
+ * Created by Richard on 2017-08-15.
  * ViewPagerAdapter
  */
 

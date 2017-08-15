@@ -1,4 +1,4 @@
-package com.fedming.bottomnavigationdemo;
+package com.zTeam.cook;
 
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;

@@ -1,4 +1,4 @@
-package com.fedming.bottomnavigationdemo;
+package com.zTeam.cook;
 
 import org.junit.Test;
 

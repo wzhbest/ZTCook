@@ -1,4 +1,4 @@
-package com.fedming.bottomnavigationdemo;
+package com.zTeam.cook;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Created by bruce on 2016/11/1.
+ * Created by Richard on 2017-08-15.
  * BaseFragment
  */
 

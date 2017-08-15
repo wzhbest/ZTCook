@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fedming.bottomnavigationdemo">
+    package="com.zTeam.cook">
 
     <application
         android:allowBackup="true"
@@ -19,21 +19,22 @@
             </intent-filter>
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value=".search.SearchResultActivity" />
+                android:value=".SearchResultActivity" />
         </activity>
-        <activity
-            android:name="SearchResultActivity"
-            android:label="@string/title_activity_search_result"
-            android:launchMode="singleTop">
+        <activity android:name=".SearchResultActivity"
+                  android:label="@string/search_label"
+                  android:launchMode="singleTop">
+            <!--过滤器设置为android.intent.action.SEARCH-->
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
-            <!--This metadata entry provides further configuration details for searches-->
-            <!--that are handled by this activity.-->
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
+            <!--这个meta为搜索提供了进一步的配置细节，并确保由当前的activity处理-->
+
+            <meta-data android:name="android.app.searchable"
+                       android:resource="@xml/searchable"/>
+
         </activity>
+
     </application>
 
 </manifest>
