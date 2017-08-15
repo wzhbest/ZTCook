@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TEST</string>
+    <string name="action_search">search</string>
+    <string name="search_label">search_label</string>
+    <string name="search_hint">search_hint</string>
+    <string name="title_activity_search_result">title_activity_search_result</string>
+</resources>
