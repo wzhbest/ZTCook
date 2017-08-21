@@ -12,9 +12,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,15 +27,24 @@ import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
 
+    public final static String TAG = "HomeActivity";
     private ViewPager viewPager;
     private MenuItem menuItem;
     private BottomNavigationView bottomNavigationView;
     private SearchView searchView;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Log.e(TAG,"actionbar1 = " + getSupportActionBar() + "*****actionbar2 = " + getActionBar());
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.action_bar_front);
+
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -124,6 +135,8 @@ public class HomeActivity extends AppCompatActivity {
 //        searchView.setSubmitButtonEnabled(true);
 //        menu.getItem(0).setActionView(searchView);
 
+        searchView.
+
         // 获取搜索服务管理器
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         // searchable activity的component name，由此系统可通过intent进行唤起
@@ -141,6 +154,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private void setSearchView(Menu menu) {
+
         MenuItem item = menu.getItem(0);
         searchView = new SearchView(this);
         searchView.setIconifiedByDefault(false);//设置展开后图标的样式,false时ICON在搜索框外,true为在搜索框内，无法修改
@@ -148,27 +162,16 @@ public class HomeActivity extends AppCompatActivity {
         searchView.setSubmitButtonEnabled(true);//设置最右侧的提交按钮
 //        searchView.setOnQueryTextListener(this);
 
+        searchView.setPadding(0,20,0,20);
+
         //设置搜索框文字颜色
         TextView textView = (TextView)searchView
                 .findViewById(android.support.v7.appcompat.R.id.search_src_text);
         textView.setHintTextColor(Color.GRAY);
         textView.setTextColor(Color.WHITE);
 
-        //设置关闭按钮
-        ImageView closeButton = (ImageView)searchView
-                .findViewById(android.support.v7.appcompat.R.id.search_close_btn);
-        closeButton.setImageDrawable(getDrawable(R.drawable.ic_close_white));
-
-        //设置跳转按钮
-        ImageView goButton = (ImageView)searchView
-                .findViewById(android.support.v7.appcompat.R.id.search_go_btn);
-        goButton.setImageDrawable(getDrawable(R.drawable.ic_submit));
-
-        //设置隐藏的ICON,在setIconifiedByDefault(false)时才能设置成功
-        ImageView collapsedIcon = (ImageView)searchView
-                .findViewById(android.support.v7.appcompat.R.id.search_mag_icon);
-        collapsedIcon.setImageDrawable(getDrawable(R.drawable.ic_search_white));
-
+        View searchPlate = (View)searchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
+        searchPlate.setBackground(getDrawable(R.drawable.search_plate_bg));
 
         item.setActionView(searchView);
     }
